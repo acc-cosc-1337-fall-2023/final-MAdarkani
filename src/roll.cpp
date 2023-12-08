@@ -16,3 +16,9 @@ int Roll::roll_value() const
 {
     return value;
 }
+
+std::ostream& operator<<(std::ostream& out, const Roll& roll) {
+    out << "Die 1: " << roll.die1.rolled_value() << "\nDie 2: " << roll.die2.rolled_value()
+        << "\nTotal: " << roll.value;
+    return out;
+}

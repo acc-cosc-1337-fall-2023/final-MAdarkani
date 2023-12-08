@@ -2,6 +2,8 @@
 #include "catch.hpp"
 #include "die.h"
 #include "roll.h"
+#include "shooter.h"
+#include <iostream>
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -37,4 +39,21 @@ TEST_CASE("testing die roll with Roll class") {
 		REQUIRE(rolledValue >= 2);
 		REQUIRE(rolledValue <= 12);
 	}
+}
+
+
+TEST_CASE("Test Shooter returns a Roll and roll values are between 2 and 12") {
+    Die die1;
+    Die die2;
+    Shooter shooter(die1, die2);
+
+    Roll* roll;
+    for (int i = 0; i < 10; i++) {
+		roll = shooter.throw_die();
+        int roll_value = roll->roll_value();
+
+        REQUIRE(roll != nullptr);
+        REQUIRE(roll_value >= 2);
+        REQUIRE(roll_value <= 12);
+    }
 }

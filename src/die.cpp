@@ -3,7 +3,9 @@
 
 Die::Die() : sides(6)
 {
+ 
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
 }
 
 void Die::roll()
